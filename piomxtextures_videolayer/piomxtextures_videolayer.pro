@@ -26,7 +26,7 @@ TEMPLATE = lib
 VERSION = 0.8.0
 DEFINES += VERSION=\\\"$$VERSION\\\"
 
-QT += quick qml dbus gui multimedia
+QT += core quick qml dbus gui multimedia
 greaterThan(QT_MAJOR_VERSION, 5) {
     QT += statemachine
 }

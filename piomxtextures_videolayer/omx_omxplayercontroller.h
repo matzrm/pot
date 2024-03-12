@@ -46,13 +46,15 @@
 #include <QSemaphore>
 
 #include <functional>
-#include <lqtutils_threading.h>
+#include "lqtutils_threading.h"
 
 #include "omx_logging_cat.h"
+
 
 template<typename T>
 using POT_DbusCall = std::function<QDBusReply<T>(QDBusInterface*)>;
 using POT_DbusCallVoid = std::function<QDBusReply<void>(QDBusInterface*)>;
+using namespace lqt;
 
 class QDBusPendingCallWatcher;
 class OMX_OmxplayerController;
@@ -268,7 +270,7 @@ private:
     QScopedPointer<QDBusInterface> m_dbusIfaceProps;
     QScopedPointer<QDBusInterface> m_dbusIfacePlayer;
     QThread*  m_thread;
-    LQTRecursiveMutex m_mutex;
+    lqt::RecursiveMutex m_mutex;
     QMutex    m_geometryMutex;
     QProcess* m_process;
     QUrl      m_url;
